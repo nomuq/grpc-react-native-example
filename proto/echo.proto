@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package echo;
+
+option go_package = "github.com/satishbabariya/rngrpc/echo";
+
+message Empty {}
+
+message EchoRequest {
+  string message = 1;
+}
+
+message EchoResponse {
+  string message = 1;
+  int32 message_count = 2;
+}
+
+service EchoService {
+    // One request followed by one response
+    // The server returns the client message as-is.
+    rpc Echo(EchoRequest) returns (EchoResponse);
+}
